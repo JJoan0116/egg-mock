@@ -5,7 +5,9 @@ class Product extends Service {
      * 查询有权限的product
      * @param {*} workId workId
      */
-  async getUserPermissionList() {
+  async getUserPermissionList(workId) {
+    const permissions = await this.ctx.service.permission.findPermissionByUser(workId);
+    console.log(111, permissions);
     const result = [];
     return result;
   }

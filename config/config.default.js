@@ -16,7 +16,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1662454959601_931';
 
   // add your middleware config here
-  config.middleware = [ 'robot' ];
+  // config.middleware = [ 'robot' ];
 
   // add your user config here
   const userConfig = {
@@ -26,17 +26,31 @@ module.exports = appInfo => {
   config.view = {
     defaultViewEngine: 'nunjucks',
     mapping: {
-      '.tpl': 'nunjucks',
+      '.html': 'nunjucks',
+    },
+  };
+
+  config.sequelize = {
+    dialect: 'mysql',
+    // host: 'rm-1hhj9an54wut4fj1j.mysql.rds.aliyuncs.com',
+    host: 'localhost',
+    username: 'root',
+    password: '1qaz@WSX',
+    port: 3306,
+    database: 'mocks',
+    define: {
+      freezeTableName: true,
+      timestamps: false,
+      // createdAt: 'gmtCreate',
+      // updatedAt: 'gmtModified',
+      charset: 'utf8',
+      underscored: true,
     },
   };
 
   config.news = {
     pageSize: 5,
     serverUrl: 'https://hacker-news.firebaseio.com/v0',
-  };
-
-  config.robot = {
-    ua: [ /Baiduspider/i ],
   };
 
   return {

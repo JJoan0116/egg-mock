@@ -6,21 +6,21 @@ class ViewController extends Controller {
   async index(ctx) {
     const userInfo = ctx.user;
 
-    // const userPermissionList = await ctx.service.product.getUserPermissionList(userInfo.workId);
+    const userPermissionList = await ctx.service.product.getUserPermissionList(userInfo?.workId);
     // const userPermissionAdminList = await ctx.service.product.getUserPermissionAdminList(userInfo.workId);
 
     // 字段名适配
-    function map(products) {
-      products.forEach(product => {
-        product.value = product.code;
-        product.text = product.name;
+    // function map(products) {
+    //   products.forEach(product => {
+    //     product.value = product.code;
+    //     product.text = product.name;
 
-        product.members.forEach(member => {
-          member.nickName = member.userName;
-        });
-      });
-      return products;
-    }
+    //     product.members.forEach(member => {
+    //       member.nickName = member.userName;
+    //     });
+    //   });
+    //   return products;
+    // }
 
     await ctx.render('index.html', {
       // userPermissionList: JSON.stringify(map(userPermissionList)),

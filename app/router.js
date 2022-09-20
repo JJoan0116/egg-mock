@@ -11,6 +11,6 @@ module.exports = app => {
   // view
   router.get('/', view.index);
   router.get('/login', view.login);
-  router.get('/news', controller.news.list);
+  // router.get('/news', controller.news.list);
   // router.get('/project/*', view.index);
 };
